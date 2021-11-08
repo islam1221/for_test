@@ -1,13 +1,13 @@
+from typing import List
 from django.shortcuts import render
-from django.http import HttpResponse,FileResponse
-import random
-# Create your views here.
-a = random.randint(1,100)
+from django.http.request import HttpRequest
+from .models import BlogPost
 
-def number_r(request):
-    return HttpResponse(a)
+def blog_view(request):
+    post: List[BlogPost] = BlogPost.objects.all()
+    return render(request, 'index.html', context={'blogs':post})
 
-def picture(request):
-    file = .
-    return FileResponse()
-
+    
+def blog_detail_view(request: HttpRequest, id: int):
+    blog = BlogPost.objects.get(id=id)
+    return render(request, 'blog_detail.html', context={'blog':blog}) 

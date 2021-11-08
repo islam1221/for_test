@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islam</title>
+</head>
+<body>
+{% for i in blogs %}
+<h1>{{ i.title }}</h1>
+<a href="/blog/{{ i.id }}"><img class="card-img-top" src="{{ i.image.url }}" alt="..." /></a>
+     <h2 class="card-title">Пост:{{ i.title }}</h2>
+         <p class="card-text">Описание:{{ i.description }}</p>
+         <h1>Лайки:{{ i.likes }}</h1>
+{% endfor %}
+
+</body>
+</html> 
